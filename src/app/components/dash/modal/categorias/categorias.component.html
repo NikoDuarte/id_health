@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <form [formGroup]="formCate" (ngSubmit)="submitCategory()" autocomplete="off">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <mat-form-field class="w-75">
+                    <mat-label>Nombre</mat-label>
+                    <input type="text" matInput placeholder="Ex. Aseo" formControlName="nombre">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outline-secondary w-50" type="submit">
+                    {{ category != null || category != undefined ? 'Editar' : 'Crear' }}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

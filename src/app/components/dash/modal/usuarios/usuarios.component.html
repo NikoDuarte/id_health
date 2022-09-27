@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <form [formGroup]="formUser" (ngSubmit)="sumbitInfoUser()" autocomplete="off">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <mat-form-field class="w-75">
+                    <mat-label>Nombre</mat-label>
+                    <input type="text" matInput placeholder="Ex. Pedro" formControlName="nombre">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 text-center">
+                <mat-form-field class="w-75">
+                    <mat-label>Correo</mat-label>
+                    <input type="email" matInput placeholder="Ex. pedro@gmail.com" formControlName="correo">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 text-center" *ngIf="user === null || user === undefined">
+                <mat-form-field class="w-75">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide" type="button">
+                        <mat-icon>
+                            {{hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outline-secondary w-50" type="submit">
+                    {{ user != null || user != undefined ? 'Editar' : 'Crear' }}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

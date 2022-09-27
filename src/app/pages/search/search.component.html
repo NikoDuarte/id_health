@@ -1,0 +1,52 @@
+<div class="contaner-fluid mt-5">
+    <div class="row justify-content-center mt-5 animate__animated animate__fadeIn">
+        <div class="col-md-12 text-center align-self-center mt-5">
+            <form [formGroup]="formSearch" (ngSubmit)="submitSearch()" autocomplete="off">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <mat-form-field class="w-75">
+                            <mat-label>Termino de busqueda</mat-label>
+                            <input type="text" matInput placeholder="..." formControlName="term">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4 align-self-center text-left">
+                        <button class="btn btn-outline-link" type="submit">
+                            <i class='bx bx-search bx-sm'></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-12 mt-4" *ngIf="search === true" [ngClass]="{'animate__animated animate__fadeIn': search === true}">
+            <!-- //? -> Resultados de usuario -->
+            <h3>Usuarios</h3>
+            <div class="mt-4">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let iU of users">
+                        {{iU.nombre}} - {{ iU.correo }}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <hr>
+            <!-- //? -> Resultados de Categorias -->
+            <h3>Categorias</h3>
+            <div class="mt-4">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let iC of categorys">
+                        {{iC.nombre}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <hr>
+            <!-- //? -> Resultados de Productos -->
+            <h3>Productos</h3>
+            <div class="mt-4">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let iP of products">
+                        {{iP.nombre}} - ${{iP.precio}}
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+        </div>
+    </div>
+</div>

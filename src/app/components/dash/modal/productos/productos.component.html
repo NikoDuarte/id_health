@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <form [formGroup]="formCate" (ngSubmit)="submitProductos()" autocomplete="off">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <mat-form-field class="w-100">
+                    <mat-label>Nombre</mat-label>
+                    <input type="text" matInput placeholder="..." formControlName="nombre">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12 text-center">
+                <mat-label>Categoria</mat-label>
+                <ng-select formControlName="categoria" class="w-100" required>
+                    <ng-option *ngFor="let iC of categorys" [value]="iC._id">
+                        {{iC.nombre}}
+                    </ng-option>
+                </ng-select>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-outline-secondary w-50" type="submit">
+                    {{ productos != null || productos != undefined ? 'Editar' : 'Crear' }}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        {{title}}
+    </h4>
+    <button type="button" class="btn btn-outline-link close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <i class='bx bx-x bx-sm'></i>
+    </button>
+</div>
+<div class="modal-body animate__animated animate__fadeIn">
+    <app-usuarios *ngIf="path === 0" [user]="data"></app-usuarios>
+    <app-categorias *ngIf="path === 1" [category]="data"></app-categorias>
+    <app-productos *ngIf="path === 2" [productos]="data"></app-productos>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">
+        Cerrar
+    </button>
+</div>
